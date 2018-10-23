@@ -1,0 +1,42 @@
+name:       line-type
+version:    0.1.0.0
+github:     kshepard/line-type
+license:    MIT
+author:     'Kenneth Shepard'
+maintainer: kshepard@gmail.com
+copyright:  '2018 Kenneth Shepard'
+
+extra-source-files:
+  - README.md
+
+synopsis: 'Generative art in Haskell'
+category: Art
+description: 'See the README at <https://github.com/kshepard/line-type#readme>'
+
+dependencies:
+  - 'base >= 4.7 && < 5'
+
+library:
+  source-dirs: src
+
+executables:
+  line-type-exe:
+    main: Main.hs
+    source-dirs: app
+    ghc-options:
+      - '-threaded'
+      - '-rtsopts'
+      - '-with-rtsopts=-N'
+    dependencies:
+      - line-type
+
+tests:
+  line-type-test:
+    main: Spec.hs
+    source-dirs: test
+    ghc-options:
+      - '-threaded'
+      - '-rtsopts'
+      - '-with-rtsopts=-N'
+    dependencies:
+      - line-type
