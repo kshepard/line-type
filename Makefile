@@ -1,10 +1,13 @@
-.PHONY: format lint setup build test serve
+.PHONY: format lint weed setup build test serve
 
 format:
 	find . -not -path '*/\.*' -name "*.hs" -exec brittany --write-mode=inplace {} \;
 
 lint:
 	hlint src/ app/ test/
+
+weed:
+	weeder . --build
 
 setup:
 	stack install
